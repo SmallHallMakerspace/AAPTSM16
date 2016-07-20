@@ -29,4 +29,4 @@ deploy:
    - LICENSE.pdf
    - deconinck_AAPTSM16.tex
   on:
-    repo: wdconinc/AAPTSM16
+    repo: SmallHallMakerspace/AAPTSM16
