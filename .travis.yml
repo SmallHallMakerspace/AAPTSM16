@@ -1,6 +1,5 @@
 os: linux
 sudo: required
-language: ruby
 
 before_install:
  - sudo apt-get install -y pandoc rubber
