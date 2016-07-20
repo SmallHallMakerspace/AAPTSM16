@@ -1,0 +1,29 @@
+os: linux
+sudo: required
+language: ruby
+
+before_install:
+ - sudo apt-get install -y pandoc rubber
+ - sudo apt-get install -y texlive-science texlive-pictures texlive-latex-extra
+
+script:
+ - sed -i 's|^\[\!\[.*||g' README.md
+ - pandoc -s --from=markdown --to=latex -V geometry:letterpaper,margin=1in -o README.tex README.md
+ - rubber --pdf README.tex
+
+ - sed -i 's|^\[\!\[.*||g' LICENSE.md
+ - pandoc -s --from=markdown --to=latex -V geometry:letterpaper,margin=1in -o LICENSE.tex LICENSE.md
+ - rubber --pdf LICENSE.tex
+
+ - lualatex deconinck_AAPTSM16.tex
+
+deploy:
+  provider: releases
+  api_key:
+    secure: FR+gX4RrmfM013JER9FwsxzBxzC0wk2XU0ZWlJQDh2cT01gIImmyMTK61WD+EpzOoXaar+YV1Qb99ZHw/83mRtBMfdxPXhHvaYR9z/MWnkTaYsQNGPhaukp2tPSMwURJYCpt+T+aTBbg1u9LrZaZZPpXCJQ8DxYWnpZGjEhNiP3YAxxvFnIN1cVCAU7GHyfPVOjrKaRp7cGmwzBZ0HcLKSTozRvZjeohQp5rkNPUuw8B4docIeESq8GFlmhIGx4SUfRWnA7pma3AQBH9imkktdPfqlt0dQ/8p+XEA1D+IDjLM+oZGfFIQ/lneMX1CDcvROQXeUXNTblPjYrJzEJFWykHR64bxlpmGjDsG6XfgBFd7Y9SoOW1crcoAfpDnmNBDpPQ1RpCIf9b9YaUxn8/WVIiamIisLHYJoCqQ0Lv9q4HEyNUZe3WEZExeNPddVqYzBdEmysa5pqPQhADbUrPilFbcVxQrI9YHRk/WBItUWCAjs8vE5XaCKHsLjDrvHGEDAoHb5QSbkRm5smhDRU6MVjwHLTX4ugEcuMGFAh7/qpj+KoBTaxx+K9VW4noXds/hHQf3cJ8Y9PZnZer6Sb6LCWmQJVEdCPVdiJKwdpPrU40R+NgGMCBcZ0eiirBWcrVl6bwjrG4QchqHO8Rkvx0i5RNBuy248taTMatGFhqJGE=
+  file:
+   - README.pdf
+   - LICENSE.pdf
+   - deconinck_AAPTSM16.tex
+  on:
+    repo: wdconinc/AAPTSM16
