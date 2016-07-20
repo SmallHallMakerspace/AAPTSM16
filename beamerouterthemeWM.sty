@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Beamer outer theme following the W&M Style Guide as of March 2015
+%% found at http://styleguide.wm.edu/ (may need W&M username/password to
+%% access).
+%%
+%% Author: Juan Carlos Cornejo <jccornejo@email.wm.edu>
+%% http://wmpeople.wm.edu/site/page/jccornejo/
+
+%% Global toggles first
+\newtoggle{numberbyframe}
+
+%% Counter to keep track of slide number in frame		
+\newcounter{footerslideinframe}		
+\newenvironment{tightcenter}{%		
+  \setlength\topsep{0pt}		
+  \setlength\parskip{0pt}		
+  \begin{center}		
+}{%		
+  \end{center}		
+}
+
+%% Declare and process Beamer options
+\DeclareOptionBeamer{numberbyframe}[true]{\global\toggletrue{numberbyframe}}
+\DeclareOptionBeamer{numberbypage}{\global\togglefalse{numberbyframe}}
+\ExecuteOptionsBeamer{numberbypage}
+\ProcessOptionsBeamer\relax
+
+%% Define presentation mode settings
+\mode<presentation>
+
+%%
+\newlength{\PageMargin}
+\newlength{\PageTopMargin}
+\newlength{\PageFooter}
+\newlength{\PageFooterDate}
+\newlength{\PageFooterTitle}
+\newlength{\PageFooterPageNumber}
+\newlength{\PageWidthMinusMargins}
+\pgfmathsetlength{\PageMargin}{5pt}
+\pgfmathsetlength{\PageFooter}{10pt}
+\pgfmathsetlength{\PageTopMargin}{1.5*\PageMargin}
+\pgfmathsetlength{\PageWidthMinusMargins}{\the\paperwidth-3*\PageMargin}
+
+\pgfmathsetlength{\PageFooterDate}{0.25*\the\paperwidth}
+\pgfmathsetlength{\PageFooterTitle}{0.5*\the\paperwidth}
+\pgfmathsetlength{\PageFooterPageNumber}{1.75*\PageFooter}
+
+\newcounter{totalslideinframe}
+
+%% Specify the default margins
+\setbeamersize{text margin left=\PageMargin,text margin right=\PageMargin}
+
+%%%%%
+% Need to push frame title down below the margin
+\setbeamertemplate{frametitle}{
+%\vspace*{\PageTopMargin}\hspace*{\PageMargin}
+ %\vspace*{\PageTopMargin}%
+  %% Since we can't use insertframetitle because of expansion problems,
+  %% we have to check for this value ourselves now
+  \pgfmathsetmacro{\localTitleLineWidth}{\textwidth}
+  \pgfmathsetmacro{\localTitleContinuationWidth}{\beamer@autobreakcount>0?
+      \widthof{\space\insertcontinuationcountroman} : 0.0}
+  \pgfmathsetmacro{\localTitleWidth}{\widthof{\beamer@frametitle}+\localTitleContinuationWidth}
+  %\settowidth{\localTitleBaseWidth}{\expandafter{\romannumeral-`X}\usebeamertemplate*{frametitle continuation}}
+  %\fi}
+  %% Perform some computations
+  \pgfmathsetmacro{\localTitleRatio}{\localTitleLineWidth/\localTitleWidth)}
+  \pgfmathsetmacro{\localTitleScale}{\localTitleRatio>1 ? 1.0 : \localTitleRatio}
+  %Adds in the frame subtitle scales 0.75% of full title
+  \pgfmathsetmacro{\localSubTitleScale}{0.75*\localTitleScale}
+  %% Now space the title from the top-left by 1mm
+  %\vspace*{1mm}\hspace*{1mm}
+  \begin{center}%
+  \scalefont{\localTitleScale}{\insertframetitle}%
+  %checks if there is a subtitle and only thne does it add it (this is a room thing)
+  \ifx\insertframesubtitle\empty%
+  \else%
+    %if there is the space between the title and the subtitle is 0.3 em
+    \vskip 0.3em \scalefont{\localSubTitleScale}{\insertframesubtitle}%
+  \fi%
+  \end{center}%
+}
+
+%% Configure the footline (footer)
+\setbeamerfont{date in head/foot}{size=\fontsize{6.5}{10},series=\bfseries}
+\setbeamerfont{title in head/foot}{size=\fontsize{6.5}{10},series=\bfseries}
+\setbeamerfont{page number in head/foot}{size=\fontsize{6.5}{10},series=\bfseries}
+\setbeamertemplate{footline}{%
+%% The Left end of the footline
+\begin{minipage}[c][\PageFooter][c]{\PageFooterDate}%
+  \begin{beamercolorbox}[wd=\PageFooterDate]{date in head/foot}%
+    \hspace*{\PageFooter}\usebeamerfont{date in head/foot}\insertdate%
+  \end{beamercolorbox}%
+\end{minipage}%
+%% The middle of the footline
+\begin{minipage}[c][\PageFooter][c]{\PageFooterTitle}%
+  \begin{beamercolorbox}[center]{title in head/foot}%
+    % use Subtitle
+    \usebeamerfont{title in head/foot}\insertsubtitle%
+    %Use event
+    %\usebeamerfont{title in head/foot}\insertevent%
+    %Use author and event
+    %\usebeamerfont{title in head/foot}\insertauthor~|~\insertevent%
+    %Use title
+    %\usebeamerfont{title in head/foot}\inserttitle%
+  \end{beamercolorbox}%
+\end{minipage}%
+\hfill%
+%% The right end of the footline
+%%%%%%%
+%Normal numbering
+%%%%%%%
+\begin{minipage}[c][\PageFooter][c]{\PageFooterPageNumber}%
+  \begin{beamercolorbox}[center]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}%
+    \iftoggle{numberbyframe}{\insertframenumber}{\insertpagenumber}%
+  \end{beamercolorbox}%
+\end{minipage}%
+%
+%%%%%%%%
+% number by frame with letters
+%%%%%%%%
+%% The right end of the footline
+%\begin{minipage}[c][\PageFooter][c]{\PageFooterPageNumber}%
+%  \begin{beamercolorbox}[center]{page number in head/foot}%
+%    \usebeamerfont{page number in head/foot}%
+    % Set counter to correct value
+%    \setcounter{footerslideinframe}{\insertpagenumber}%
+%    \addtocounter{footerslideinframe}{-\insertframestartpage}%
+%    \addtocounter{footerslideinframe}{1}%
+%    \iftoggle{numberbyframe}{\insertframenumber%
+%    \ifnum\value{footerslideinframe}>1\alph{footerslideinframe}\fi%
+%    }{\insertpagenumber}%
+%  \end{beamercolorbox}%
+%\end{minipage}%
+}
+\mode
+<all>
+\endinput
