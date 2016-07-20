@@ -4,7 +4,10 @@ sudo: required
 
 before_install:
  - sudo apt-get install -y pandoc rubber
- - sudo apt-get install -y texlive-latex-recommended texlive-science texlive-pictures texlive-latex-extra 
+ - sudo apt-get install -y texlive-full texlive-fonts-recommended
+ - sudo apt-get install -y texlive-latex-recommended texlive-latex-extra
+ - sudo apt-get install -y texlive-science texlive-pictures
+ - sudo apt-get install -y texlive-xetex
 
 script:
  - sed -i 's|^\[\!\[.*||g' README.md
@@ -15,7 +18,7 @@ script:
  - pandoc -s --from=markdown --to=latex -V geometry:letterpaper,margin=1in -o LICENSE.tex LICENSE.md
  - rubber --pdf LICENSE.tex
 
- - lualatex deconinck_AAPTSM16.tex
+ - lualatex --halt-on-error deconinck_AAPTSM16.tex
 
 deploy:
   provider: releases
