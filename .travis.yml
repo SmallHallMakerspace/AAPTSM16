@@ -15,7 +15,7 @@ script:
  - pandoc -s --from=markdown --to=latex -V geometry:letterpaper,margin=1in -o LICENSE.tex LICENSE.md
  - rubber --pdf LICENSE.tex
 
- - lualatex --halt-on-error deconinck_AAPTSM16.tex
+ - lualatex deconinck_AAPTSM16.tex
 
 deploy:
   provider: releases
