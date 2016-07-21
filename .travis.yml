@@ -29,5 +29,6 @@ deploy:
    - LICENSE.pdf
    - deconinck_AAPTSM16.pdf
   skip_cleanup: true
+  overwrite: true
   on:
     tags: true
