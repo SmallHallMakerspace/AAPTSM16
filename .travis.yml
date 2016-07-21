@@ -27,6 +27,7 @@ deploy:
   file:
    - README.pdf
    - LICENSE.pdf
-   - deconinck_AAPTSM16.tex
+   - deconinck_AAPTSM16.pdf
+  skip_cleanup: true
   on:
-    repo: SmallHallMakerspace/AAPTSM16
+    tags: true
