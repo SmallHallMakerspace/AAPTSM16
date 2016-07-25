@@ -31,4 +31,4 @@ deploy:
   skip_cleanup: true
   overwrite: true
   on:
-    tags: true
+    repo: SmallHallMakerspace/AAPTSM16
