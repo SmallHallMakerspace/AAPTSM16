@@ -3,31 +3,25 @@ dist: trusty
 sudo: required
 
 before_install:
- - sudo apt-get install -y pandoc rubber
- - sudo apt-get install -y texlive-fonts-recommended
- - sudo apt-get install -y texlive-latex-recommended texlive-latex-extra
- - sudo apt-get install -y texlive-science texlive-pictures
- - sudo apt-get install -y texlive-xetex
+- sudo apt-get install -y pandoc rubber
+- sudo apt-get install -y texlive-fonts-recommended
+- sudo apt-get install -y texlive-latex-recommended texlive-latex-extra
+- sudo apt-get install -y texlive-science texlive-pictures
+- sudo apt-get install -y texlive-xetex
 
 script:
- - sed -i 's|^\[\!\[.*||g' README.md
- - pandoc -s --from=markdown --to=latex -V geometry:letterpaper,margin=1in -o README.tex README.md
- - rubber --pdf README.tex
-
- - sed -i 's|^\[\!\[.*||g' LICENSE.md
- - pandoc -s --from=markdown --to=latex -V geometry:letterpaper,margin=1in -o LICENSE.tex LICENSE.md
- - rubber --pdf LICENSE.tex
-
- - lualatex --halt-on-error deconinck_AAPTSM16.tex
+- sed -i 's|^\[\!\[.*||g' README.md
+- pandoc -s --from=markdown --to=latex -V geometry:letterpaper,margin=1in -o README.tex README.md
+- rubber --pdf README.tex
+- sed -i 's|^\[\!\[.*||g' LICENSE.md
+- pandoc -s --from=markdown --to=latex -V geometry:letterpaper,margin=1in -o LICENSE.tex LICENSE.md
+- rubber --pdf LICENSE.tex
+- lualatex --halt-on-error deconinck_AAPTSM16.tex
 
 deploy:
   provider: releases
-  api_key: 4a344f2e5de816460470ce427b4a8d79fc449c12
-  file:
-   - README.pdf
-   - LICENSE.pdf
-   - deconinck_AAPTSM16.pdf
-  skip_cleanup: true
-  overwrite: true
+  api_key:
+    secure: IEkS1yoFOGroJufRL7YrBb3gaDUuyJJ4YHuPNTDJ8jN0PXUx62ZYsZlODxx+R02vxFiutlCOXXEoqobHWp9JsbTYendrHVIrPWWtnwUXcsTqJiVUCEOQdGO5a9RA7RKqPbkJ2OrsBwcWr+7tRXj750L4FajwFPbBp2/w21bk4yr1cw08fkARrSVH2+Iv3gxqb08ODquuMI50iMumYAOsMOUD0vwaKqP8pYXX2b4mawyv1TUQWyFLgANAx15YUG5GfCkpO1O0yGkmKxjA3aWVtGzKB+9Z2wJMR6+NXKlqcgWtLlQxH0x/Edy+nkh0Fph9QUg72it61PqxZcCtjEafkW10qSoYz0FxAw8BDf+7C5WMXSWxb8+KbagRVsku8J65mHdesJe9u7SZ3WsSekiBBd2d62WeJ4IHOk3imbu3A7aMVviWksZPYFNP7dZZgB+VsQ6q2b+qRGBaGA2fruLlb7B08xaCddKj6qi95eSsCvCDJP4l0cVA6ifMeYdS1XxjX0/EDLijYG5DOTfSpWuHYeyfELaQJQt5WKCla5sjCkRr7XzCdpPqy0tvpuR6DlNZVrdhw/kFbhYJIpxyzjQVY1PiZm8z+rKFPuqJae2X71T8ndWkrTJRT+X18InLTzZ28U+GnCFe0s+wj3KqpOp6gzYDVCF0YKGEgkhwXOoQHRQ=
+  file: deconinck_AAPTSM16.pdf
   on:
     repo: SmallHallMakerspace/AAPTSM16
