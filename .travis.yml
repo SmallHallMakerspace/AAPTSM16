@@ -22,6 +22,8 @@ deploy:
   provider: releases
   api_key:
     secure: IEkS1yoFOGroJufRL7YrBb3gaDUuyJJ4YHuPNTDJ8jN0PXUx62ZYsZlODxx+R02vxFiutlCOXXEoqobHWp9JsbTYendrHVIrPWWtnwUXcsTqJiVUCEOQdGO5a9RA7RKqPbkJ2OrsBwcWr+7tRXj750L4FajwFPbBp2/w21bk4yr1cw08fkARrSVH2+Iv3gxqb08ODquuMI50iMumYAOsMOUD0vwaKqP8pYXX2b4mawyv1TUQWyFLgANAx15YUG5GfCkpO1O0yGkmKxjA3aWVtGzKB+9Z2wJMR6+NXKlqcgWtLlQxH0x/Edy+nkh0Fph9QUg72it61PqxZcCtjEafkW10qSoYz0FxAw8BDf+7C5WMXSWxb8+KbagRVsku8J65mHdesJe9u7SZ3WsSekiBBd2d62WeJ4IHOk3imbu3A7aMVviWksZPYFNP7dZZgB+VsQ6q2b+qRGBaGA2fruLlb7B08xaCddKj6qi95eSsCvCDJP4l0cVA6ifMeYdS1XxjX0/EDLijYG5DOTfSpWuHYeyfELaQJQt5WKCla5sjCkRr7XzCdpPqy0tvpuR6DlNZVrdhw/kFbhYJIpxyzjQVY1PiZm8z+rKFPuqJae2X71T8ndWkrTJRT+X18InLTzZ28U+GnCFe0s+wj3KqpOp6gzYDVCF0YKGEgkhwXOoQHRQ=
-  file: deconinck_AAPTSM16.pdf
+  file: deconinck_AAPTSM16.pdf README.pdf LICENSE.pdf
+  skip_cleanup: true
+  overwrite: true
   on:
     repo: SmallHallMakerspace/AAPTSM16
