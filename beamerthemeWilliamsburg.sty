@@ -1,0 +1,71 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackage{beamerthemeWilliamsburg}
+
+
+\DeclareOptionBeamer{compress}{\beamer@compresstrue}
+\ProcessOptionsBeamer
+
+
+\mode<presentation>
+
+\setbeamercolor{section in head/foot}{use=structure,bg=structure.fg!25!bg}
+
+\useoutertheme[subsection=false]{miniframes}
+
+\setbeamercovered{transparent}
+
+\setbeamertemplate{sidebar left}{}
+\setbeamertemplate{sidebar right}{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle}[default][left]
+
+
+\setbeamertemplate{footline}%
+  {%
+    \leavevmode%
+    \hbox{%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{}%
+      \hspace*{1ex} \insertlogo
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{}%
+      \insertframenumber{} \hspace*{1ex}
+    \end{beamercolorbox}}%
+    \vskip0pt%
+  }
+
+\AtBeginDocument{%
+  {%
+    \usebeamercolor{section in head/foot}
+  }
+
+  \pgfdeclareverticalshading{beamer@headfade}{\paperwidth}
+  {%
+    color(0cm)=(bg);
+    color(1.25cm)=(section in head/foot.bg)%
+  }
+
+  \setbeamercolor{section in head/foot}{bg=}
+}
+
+\AtBeginSection[]%
+  {%
+    \begin{frame}<beamer>
+      \frametitle{Outline}
+      \tableofcontents[currentsection]
+    \end{frame}
+  }
+
+\addtoheadtemplate{\pgfuseshading{beamer@headfade}\vskip-1.25cm}{}
+
+\beamertemplatedotitem
+
+\mode
+<all>
