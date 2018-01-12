@@ -1,34 +1,49 @@
-\documentclass[xcolor=table,compress,professionalfonts,pdfpagelabels]{beamer}
+% Beamer presentation
+\documentclass[xcolor={dvipsnames},professionalfonts]{beamer}
 
-\usepackage[english]{babel}
-\usepackage{fontenc}
+%%%%%%%%%%%%%%%%%%
+% Load packages
+%%%%%%%%%%%%%%%%%%
+\include{packages}
+\usepackage[UTF8]{ctex}
 
-\usepackage{graphicx}
-\graphicspath{{figures/}{photos/}}
+%%%%%%%%%%%%%%%%%%
+% Load definitions
+%%%%%%%%%%%%%%%%%%
+\include{definitions}
 
-\usepackage{hyperref}
-\mode<presentation>{
- \usetheme{WM}
-}
+%%%%%%%%%%%%%%%%%%
+% Load logos
+%%%%%%%%%%%%%%%%%%
 
-\makeatletter
-% Stuff for calc compatibility.
-\let\real=\pgfmath@calc@real
-\let\minof=\pgfmath@calc@minof
-\let\maxof=\pgfmath@calc@maxof
-\let\ratio=\pgfmath@calc@ratio
-\let\widthof=\pgfmath@calc@widthof
-\let\heightof=\pgfmath@calc@heightof
-\let\depthof=\pgfmath@calc@depthof
-\makeatother
+\include{logos}
+
+%%%%%%%%%%%%%%%%%%
+% Presentation style
+%%%%%%%%%%%%%%%%%%
+\usetheme{WM}
+
+% Sectioning
+%\setbeamertemplate{headline}{}
+%\AtBeginSection{\frame{\sectionpage}}
+
+%%%%%%%%%%%%%%%%%%
+% This document
+%%%%%%%%%%%%%%%%%%
 
 % Title and such
 \title{Physics Innovation and Entrepreneurship at a Liberal Arts University}
 \subtitle{CC BY-SA}
+
+% Author and institution on title page
 \author{Wouter Deconinck}
-\institute{William \& Mary, Physics}
-\date{Colloquium 2016-10-06}
-\event{George Washington University}
+
+% Date and event
+\date{JLab Tech Transfer Workshop}
+\event{Catholic University of America}
+
+% Acknowledgement
+\acknowledgement[NSF PHY-1405857 \& DUE-1624882 \& PHY-1714792]{Supported by the NSF under Grant Nos. PHY-1405857, DUE-1624882, PHY-1714792.}
 
 % Let's get started
 \begin{document}
@@ -49,21 +64,17 @@
    \item At a liberal arts institution without innovation and entrepreneurship activities, physics departments are uniquely placed to benefit at minimal cost from the possibilities of the maker movement.
   \end{itemize}
  \end{block}
- \begin{block}{The PIPELINE Network\footnotemark{} (includes George Washington University)}
+ \begin{block}{The PIPELINE Network}
   \begin{itemize}
-   \item The PIPELINE Network is a three year project bringing together the efforts of six institutions to create and document new approaches to teaching innovation and entrepreneurship in physics, supported by the National Science Foundation.
+   \item The PIPELINE Network is a three year project bringing together the efforts of six institutions to create and document new approaches to teaching innovation and entrepreneurship in physics, supported by the National Science Foundation Division of Undergraduate Education.
   \end{itemize}
  \end{block}
-  \footnotetext{This material is based in part upon work supported by the National Science Foundation's Improving Undergraduate STEM Education (IUSE) program under Award No. 1624882.}
 \end{frame}
 
 \begin{frame}{William \& Mary: Liberal Arts University}
  \begin{block}{Primarily undergraduate liberal arts institution}
   \begin{itemize}
-   \item No large medical or engineering program
-   \begin{itemize}
-    \item Large service courses satisfy gen-ed and pre-med requirements
-   \end{itemize}
+   \item No large medical or engineering program (mainly gen-ed and pre-med)
   \end{itemize}
  \end{block}
  \begin{block}{Primarily undergraduate liberal arts institution with}
@@ -79,8 +90,8 @@
  \end{block}
  \begin{block}{Physics department at William \& Mary}
   \begin{itemize}
-   \item Approximately 30 undergrad majors and 15 graduate students each year
-   \item Primary preparation for graduate school (as too many physics degrees)
+   \item Approximately 30 undergrad majors and 8 graduate students each year (recently cut in half by dean due to federal and state funding declines)
+   \item Primary preparation for graduate school (as in most physics programs)
    \item Desire to prepare students better for the careers that await them
   \end{itemize}
  \end{block}
@@ -112,16 +123,16 @@
 \begin{frame}{Careers for Physicists Primarily Outside Academia}
  \begin{columns}[t]
   \begin{column}{0.49\textwidth}
-   \includegraphics[width=\textwidth]{phdinitemp1}
+   \pgfimage[width=\textwidth]{photos/phdinitemp1}
   \end{column}
   \begin{column}{0.49\textwidth}
-   \includegraphics[width=\textwidth]{phdinitemp2}
+   \pgfimage[width=\textwidth]{photos/phdinitemp2}
   \end{column}
  \end{columns}
 \end{frame}
 
 \begin{frame}{Careers for Physicists Primarily Outside Academia}
- \begin{block}{What skills are physicists missing?\footnotemark}
+ \begin{block}{What skills are physicists lacking?\footnotemark}
   \begin{columns}[T]
    \begin{column}{0.5\textwidth}
     \begin{itemize}
@@ -144,19 +155,36 @@
  \footnotetext{Sources: ABET Survey of Applied and Engineering Physics Graduates, Kettering University; APS Workshop on National Issues in Industrial Physics, Industrial Physics Lunches.}
 \end{frame}
 
+\begin{frame}{JLab's Lengthening Expt-Cycle Pushes Students Out Of Physics}
+ \begin{block}{Time frame from proposal to data-taking now several years}
+  \begin{itemize}
+   \item None of the current Ph.D. students in my group will see data taking on the primary experiment they work on (MOLLER, maybe not even PREx-II which was an early off-ramp already)
+   \item I simply cannot (get) support (for) a grad student exclusively to work on MOLLER or SoLID, let alone EIC.
+   \item Scheduling is driving faculty to explore other projects, preferably in NP at other institutions (Mainz), preferably still in NP, but often elsewhere
+  \end{itemize}
+ \end{block}
+ \begin{block}{Students are aware of this evolution and starting to consider this}
+  \begin{itemize}
+   \item We used to get students interested in training big data; not anymore\ldots
+   \item Then we got students interested in data taking and collaborative research; not anymore\ldots
+   \item Even students performing graduate research now are looking for pivot to technology applications
+  \end{itemize}
+ \end{block}
+\end{frame}
+
 \begin{frame}{What Opportunities Can We Provide?}
  \begin{block}{Inside the curriculum: Engineering Physics and Applied Design}
   \begin{itemize}
-   \item New undergraduate major/concentration within physics department
+   \item New undergraduate track within physics, major with applied science
    \item Initial (freshmen/sophomore) coursework heavily based in physics
-   \item Advanced courses in applied science
+   \item Advanced courses in applied science and engineering
    \item Advanced courses in business and entrepreneurship
-   \item Encouraged by Board of Visitors to be offered starting Fall 2017
+   \item Full curriculum moving to implementation, pilot courses underway, first cohort 2018
   \end{itemize}
  \end{block}
  \begin{block}{Outside the curriculum: Small Hall Makerspace}
   \begin{itemize}
-   \item Student-accessible campus hub (or network of hubs) that functions as design space, laboratory, project development space
+   \item Student-accessible campus hub (or network of hubs) that functions as design space, laboratory, project planning, business development
    \item Space for out-of-class activities which could be curricular or not
   \end{itemize}
  \end{block}
@@ -168,13 +196,15 @@
    \definecolor{lightgray}{rgb}{0.83, 0.83, 0.83}
    \item PHYS 101/102 – Introductory Physics with labs
    \item PHYS 201 – Modern Physics
+   \item \alert{APSC 231 – Intro to Engineering and Design}
    \item PHYS 208 – Classical Mechanics I
-   \item \textcolor{lightgray}{PHYS 313 – Quantum Mechanics I}
+   \item PHYS 313 – Quantum Mechanics I
    \item PHYS 401 – Electricity and Magnetism I
    \item PHYS 251/PHYS 252 – Upper level labs
+   \item \textcolor{lightgray}{PHYS 314 – Quantum Mechanics II}
    \item \textcolor{lightgray}{PHYS 402 –  Electricity and Magnetism II}
    \item \textcolor{lightgray}{PHYS 403 – Classical Mechanics II}
-   \item PHYS 451/452 Senior Project
+   \item \alert{PHYS 471/472 Senior Design Capstone Project}
   \end{itemize}
  \end{block}
  \begin{block}{Rendering/Simulation Labs}
@@ -186,12 +216,13 @@
  \end{block}
  \begin{block}{Business/Entrepreneurship Courses}
   \begin{itemize}
-   \item Design thinking and customer development
-   \item Business plans (business model canvas, lean launchpad)
    \item Project management
+   \item Intellectual property
+   \item Design thinking and customer discovery
+   \item Business plans (business model canvas, lean launchpad)
   \end{itemize}
  \end{block}
- \begin{block}{Senior Capstone Project}
+ \begin{block}{Senior Design Capstone Project}
   \begin{itemize}
    \item Group project (3-5 students) directed at a product (MVP)
    \item Requires: science plan, management plan, business plan
@@ -199,10 +230,10 @@
    \item Similar courses in development in Biology and CompSci as implementation of new COLL 400 capstone requirement
   \end{itemize}
  \end{block}
- \begin{block}{Need space for these student projects}
+ \begin{block}{Dedicated spaces for these student projects}
   \begin{itemize}
-   \item Entrepreneurship center in School of Business
-   \item Make students familiar with this approach early through Small Hall Makerspace
+   \item Entrepreneurship Center in School of Business
+   \item Skills training through Small Hall Makerspace
   \end{itemize}
  \end{block}
 \end{frame}
@@ -210,7 +241,7 @@
 \begin{frame}{Educational Goals: Small Hall Makerspace}
  \begin{block}{Small Hall Makerspace}
   \begin{itemize}
-   \item Formed in Fall 2013 for interdisciplinary team-based projects 
+   \item Formed in Fall 2013 for interdisciplinary team-based projects
    \item ``We provide the tools, students bring their creativity''
   \end{itemize}
  \end{block}
@@ -232,167 +263,168 @@
 \begin{frame}{Small Hall Makerspace at W\&M}
  \begin{block}{Electronics and computation workshop}
   \begin{itemize}
-   \item Raspberry Pis, Intel Edison, Arduinos and many shields, Oculus Rift VR headsets
+   \item Raspberry Pis, Arduinos, Oculus Rift VR, SMD reflow oven
    \item Server rack (old lattice QCD nodes)
   \end{itemize}
  \end{block}
  \begin{block}{Rapid prototyping shop}
   \begin{itemize}
-   \item 3D printers, laser cutters, vacuum thermoformer
+   \item 3D printers, laser cutters (incl. 1.5 mm steel capable), vacuum thermoformer
    \item Actobotics and 80/20 mechanical erector set
   \end{itemize}
  \end{block}
  \begin{block}{Student machine shop}
   \begin{itemize}
-   \item Drill press, milling machines, lathes
-   \item 3 axis $2' \times 3'$ CNC
+   \item Manual drill press, milling machines, lathes
+   \item CNC mill and lathes, 3 axis $2' \times 3'$ CNC
   \end{itemize}
  \end{block}
+ Total investment: \$200k, primarily internal funds
 \end{frame}
 
 \begin{frame}{Small Hall Makerspace at W\&M}
  \begin{block}{Rapid prototyping and electronics shop (3D printers not shown)}
  \begin{center}
-  \includegraphics[height=0.75\textheight]<1>{IMG_20150911_115502}
-  \includegraphics[height=0.75\textheight]<2>{IMG_20150911_115512}
-  \includegraphics[height=0.75\textheight]<3>{IMG_20150911_115542}
+  \pgfimage<1>[height=0.75\textheight]{photos/IMG_20150911_115502}
+  \pgfimage<2>[height=0.75\textheight]{photos/IMG_20150911_115512}
+  \pgfimage<3>[height=0.75\textheight]{photos/IMG_20150911_115542}
  \end{center}
- \end{block} 
+ \end{block}
 \end{frame}
 
 \begin{frame}{Small Hall Makerspace at W\&M}
  \begin{block}{Student machine shop (under supervision only)}
  \begin{center}
-  \includegraphics[height=0.75\textheight]<1>{IMG_20150911_115710} \quad \includegraphics[height=0.75\textheight]<1>{IMG_20150911_115715}
-  \includegraphics[height=0.75\textheight]<2>{IMG_20150911_115735}
-  \includegraphics[height=0.75\textheight]<3>{IMG_20150911_115704}
+  \pgfimage[height=0.75\textheight]<1>{photos/IMG_20150911_115710} \quad \pgfimage[height=0.75\textheight]<1>{photos/IMG_20150911_115715}
+  \pgfimage[height=0.75\textheight]<2>{photos/IMG_20150911_115735}
+  \pgfimage[height=0.75\textheight]<3>{photos/IMG_20150911_115704}
  \end{center}
- \end{block} 
+ \end{block}
 \end{frame}
 
 \begin{frame}{Small Hall Makerspace at W\&M}
- \begin{block}{Larger equipment: server, thermoformer, laser cutter}
+ \begin{block}{Larger equipment: cluster, thermoformer, laser cutters}
  \begin{center}
-  \includegraphics[height=0.75\textheight]<1>{IMG_20150911_115923} \quad \includegraphics[height=0.75\textheight]<1>{IMG_20150911_120018}
-  \includegraphics[height=0.75\textheight]<2>{IMG_20150911_120110}
+  \pgfimage[height=0.75\textheight]<1>{photos/IMG_20150911_115923} \quad \pgfimage[height=0.75\textheight]<1>{photos/IMG_20150911_120018}
+  \pgfimage[height=0.75\textheight]<2>{photos/IMG_20150911_120110}
  \end{center}
  \end{block}
 \end{frame}
 
-\begin{frame}{Reception in the Department}
- \begin{block}{Original reactions were discouraging}
-  \begin{itemize}
-   \item Dismissive reactions: ``students don't have time for that''
-   \item Worries about safety: ``how will you make sure no one gets hurt?''
-   \item Worries about security: ``how will you prevent the equipment from wandering off?''
-   \item Worries about research: encroaching on lab space or department resources
-  \end{itemize}
- \end{block}
- \begin{block}{Some careful management and appeasement required}
-  \begin{itemize}
-   \item Started in former computer room, expanded into underused lab space
-   \item Try to make optimal use of otherwise unused space, but we move out quickly if there is a research need
-   \item Fully funded by administration outside of physics department
-   \item Substantial interest from rest of campus in this resource
-  \end{itemize}
- \end{block}
-\end{frame}
- 
+% \begin{frame}{Reception in the Department}
+%  \begin{block}{Original reactions were discouraging}
+%   \begin{itemize}
+%    \item Dismissive reactions: ``students don't have time for that''
+%    \item Worries about safety: ``how will you make sure no one gets hurt?''
+%    \item Worries about security: ``how will you prevent the equipment from wandering off?''
+%    \item Worries about research: encroaching on lab space or department resources
+%   \end{itemize}
+%  \end{block}
+%  \begin{block}{Some careful management and appeasement required}
+%   \begin{itemize}
+%    \item Started in former computer room, expanded into underused lab space
+%    \item Try to make optimal use of otherwise unused space, but we move out quickly if there is a research need
+%    \item Fully funded by administration outside of physics department
+%    \item Substantial interest from rest of campus in this resource
+%   \end{itemize}
+%  \end{block}
+% \end{frame}
+
 \begin{frame}{Reception in the Department}
  \begin{block}{Current feelings among faculty are uniformly positive}
   \begin{itemize}
-   \item Integral part of department with integration of makerspace in courses, outreach, and student activities
+   \item Integral part of department with integration of makerspace in courses, outreach, student activities, faculty development
    \item Connection to other departments for both students and faculty
-   \item Planning of new physics major concentration in ``e* physics'' (for engineering or entrepreneurship, depending on who you ask)
   \end{itemize}
  \end{block}
- \begin{block}{Faculty use of makerspace resources}
+ \begin{block}{Faculty use of makerspace resources (somewhat unexpected)}
   \begin{itemize}
-   \item Heavy use of 3D printers and laser cutter (lens holders, mylar clamping rings)
+   \item Heavy use of 3D printers and laser cutter (lens holders, mylar clamping rings for gas Cerenkov detectors)
    \item Source of students with expertise with Raspberry Pi and Arduino
+   \item Resulted in co-purchasing agreements for professional-grade equipment
   \end{itemize}
  \end{block}
 \end{frame}
 
-\begin{frame}{Self-Governance of the Makerspace}
- \begin{block}{Core principle of maker movement}
-  \begin{itemize}
-   \item Don't consider students as merely users, but instill mindset of co-owners
-   \item Co-ownership in space and procedures leads to willingness to call out issues as they occur
-  \end{itemize}
- \end{block}
- \begin{block}{Several coordinators}
-  \begin{itemize}
-   \item Two physics faculty members, volunteer time only
-   \item One part-time graduate student coordinator (5 hours / week as TA)
-   \item One undergraduate student assistant coordinator (10 hours / week as hourly)
-  \end{itemize}
- \end{block}
- \begin{block}{Decisions by user board}
-  \begin{itemize}
-   \item Students who have proposed projects and been awarded funding
-   \item Leadership of student clubs that use the makerspace
-  \end{itemize}
- \end{block}
-\end{frame}
+% \begin{frame}{Self-Governance of the Makerspace}
+%  \begin{block}{Core principle of maker movement}
+%   \begin{itemize}
+%    \item Don't consider students as merely users, but instill mindset of co-owners
+%    \item Co-ownership in space and procedures leads to willingness to call out issues as they occur
+%   \end{itemize}
+%  \end{block}
+%  \begin{block}{Several coordinators}
+%   \begin{itemize}
+%    \item Two physics faculty members, volunteer time only
+%    \item One part-time graduate student coordinator (5 hours / week as TA)
+%    \item One undergraduate student assistant coordinator (10 hours / week as hourly)
+%   \end{itemize}
+%  \end{block}
+%  \begin{block}{Decisions by user board}
+%   \begin{itemize}
+%    \item Students who have proposed projects and been awarded funding
+%    \item Leadership of student clubs that use the makerspace
+%   \end{itemize}
+%  \end{block}
+% \end{frame}
 
-\begin{frame}{Outreach to the Public}
- \begin{block}{Outreach as integral to being a scientist}
-  \begin{itemize}
-   \item Recognizing the value of outreach and public science
-  \end{itemize}
- \end{block}
- \begin{block}{Open Build Events}
-  \begin{itemize}
-   \item Weekly student-run Saturday events
-   \item Open to the public
-  \end{itemize}
- \end{block}
- \begin{block}{Participation in public maker movement events}
-  \begin{itemize}
-   \item Newport News Public School STEM Days 2015: soldering and Arduino playground
-   \item RVA MakerFest 2015: 200 LED blinky boards soldered by kids, 100 bristle-bots (all outdoors in the rain)
-   \item RVA MakerFest 2016: another 200 LED blinky boards!
-  \end{itemize}
- \end{block}
-\end{frame}
+% \begin{frame}{Outreach to the Public}
+%  \begin{block}{Outreach as integral to being a scientist}
+%   \begin{itemize}
+%    \item Recognizing the value of outreach and public science
+%   \end{itemize}
+%  \end{block}
+%  \begin{block}{Open Build Events}
+%   \begin{itemize}
+%    \item Weekly student-run Saturday events
+%    \item Open to the public
+%   \end{itemize}
+%  \end{block}
+%  \begin{block}{Participation in public maker movement events}
+%   \begin{itemize}
+%    \item Newport News Public School STEM Days 2015: soldering and Arduino playground
+%    \item RVA MakerFest 2015: 200 LED blinky boards soldered by kids, 100 bristle-bots (all outdoors in the rain)
+%    \item RVA MakerFest 2016, 2017: another 400 LED blinky boards made!
+%   \end{itemize}
+%  \end{block}
+% \end{frame}
 
-\begin{frame}{Outreach to the Public}
- \begin{block}{Newport News Public School STEM Days}
- \begin{center}
-  \includegraphics[height=0.75\textheight]<1>{IMG_3184} \quad \includegraphics[height=0.75\textheight]<1>{IMG_6368}
-  \includegraphics[height=0.75\textheight]<2>{IMG_20150530_141216}
- \end{center}
- \end{block} 
-\end{frame}
+% \begin{frame}{Outreach to the Public}
+%  \begin{block}{Newport News Public School STEM Days}
+%  \begin{center}
+%   \pgfimage[height=0.75\textheight]<1>{photos/IMG_3184} \quad \pgfimage[height=0.75\textheight]<1>{photos/IMG_6368}
+%   \pgfimage[height=0.75\textheight]<2>{photos/IMG_20150530_141216}
+%  \end{center}
+%  \end{block}
+% \end{frame}
 
-\begin{frame}{Outreach to the Public}
- \begin{block}{RVA MakerFest 2015}
- \begin{center}
-  \includegraphics[height=0.75\textheight]<1>{IMG_20151003_152506}
-  \includegraphics[height=0.75\textheight]<2>{IMG_20151003_155142}
-  \includegraphics[height=0.75\textheight]<3>{IMG_20151003_155247}
- \end{center}
- \end{block} 
-\end{frame}
+% \begin{frame}{Outreach to the Public}
+%  \begin{block}{RVA MakerFest 2015}
+%  \begin{center}
+%   \pgfimage[height=0.75\textheight]<+>{photos/IMG_20151003_152506}
+%   \pgfimage[height=0.75\textheight]<+>{photos/IMG_20151003_155142}
+%   \pgfimage[height=0.75\textheight]<+>{photos/IMG_20151003_155247}
+%  \end{center}
+%  \end{block}
+% \end{frame}
 
-\begin{frame}{Outreach to the Public}
- \begin{block}{Open Build Events and Barnes \& Nobles MakerFaire}
- \begin{center}
-  \includegraphics[height=0.75\textheight]<1>{IMG_20150808_135948}
-  \includegraphics[height=0.75\textheight]<2>{IMG_20151107_153550}
-  \includegraphics[height=0.75\textheight]<3>{IMG_20151107_153618}
- \end{center}
- \end{block} 
-\end{frame}
+% \begin{frame}{Outreach to the Public}
+%  \begin{block}{Open Build Events and Barnes \& Nobles MakerFaire}
+%  \begin{center}
+%   \pgfimage[height=0.75\textheight]<+>{photos/IMG_20150808_135948}
+%   \pgfimage[height=0.75\textheight]<+>{photos/IMG_20151107_153550}
+%   \pgfimage[height=0.75\textheight]<+>{photos/IMG_20151107_153618}
+%  \end{center}
+%  \end{block}
+% \end{frame}
 
-\begin{frame}{Projects}
+\begin{frame}{Makerspace Projects}
  \begin{block}{Proposal submission}
   \begin{itemize}
    \item Request for proposals once per semester
    \item Following the Heilmeier Catechism (DARPA)
    \item Includes narrative, schedule and project budget
-   \item \$500 max for single PIs, \$1k max for interdisciplinary PIs
+   \item \$500 for single student PIs, \$1k for interdisciplinary student PIs
   \end{itemize}
  \end{block}
  \begin{block}{Selection}
@@ -408,18 +440,18 @@
  \end{block}
 \end{frame}
 
-\begin{frame}{Projects: Heilmeier Catechism}
- \begin{itemize}
-  \item What are you trying to do? Articulate your objectives using absolutely no jargon.
-  \item How is it done today, and what are the limits of current practice?
-  \item What is new in your approach and why do you think it will be successful?
-  \item Who cares? If you succeed, what difference will it make?
-  \item What are the risks?
-  \item How much will it cost?
-  \item How long will it take?
-  \item What are the mid-term and final “exams” to check for success?
- \end{itemize}
-\end{frame}
+% \begin{frame}{Projects: Heilmeier Catechism (DARPA)}
+%  \begin{itemize}
+%   \item What are you trying to do? Articulate using absolutely no jargon.
+%   \item How is it done today, and what are the limits of current practice?
+%   \item What is new in your approach and why do you think it will be successful?
+%   \item Who cares? If you succeed, what difference will it make?
+%   \item What are the risks?
+%   \item How much will it cost?
+%   \item How long will it take?
+%   \item What are the mid-term and final ``exams'' to check for success?
+%  \end{itemize}
+% \end{frame}
 
 \begin{frame}{Curricular Activities: Robo-Ops Competition}
  \begin{block}{Participation in national competition}
@@ -437,13 +469,13 @@
 \begin{frame}{Curricular Activities: Robo-Ops Competition}
  \begin{block}{Experiences}
   \begin{itemize}
-   \item Rapid prototyping and agile development, applied to both hardware and software
-   \item Multiple W\&M sub-teams addressed different aspects with separate team leads
+   \item Rapid prototyping and agile development, both hardware and software
+   \item Multiple W\&M sub-teams addressed different aspects with separate team leads: excellent experience for students and learning experience for instructor
   \end{itemize}
  \end{block}
  \begin{block}{Robo-Ops competition on May 24, 2016}
   \begin{itemize}
-   \item Rover operated from NASA Langley Research Center mission control room
+   \item Rover at NASA Johnson Space Center operated from NASA Langley Research Center mission control room
    \item Finished third in field of 8 competing teams (first prize: ``Rovie McRoverface'' from U Oklahoma)
   \end{itemize}
  \end{block}
@@ -452,49 +484,123 @@
 \begin{frame}{Curricular Activities: Robo-Ops Competition}
  \begin{block}{Demonstration run at NASA Langley Research Center}
  \begin{center}
-  \includegraphics[height=0.75\textheight]<1>{IMG_20160422_154302}
+  \pgfimage[height=0.75\textheight]<1>{photos/IMG_20160422_154302}
  \end{center}
  \end{block}
 \end{frame}
 
-\begin{frame}{Curricular Activities: Week-Long May Seminars}
- \begin{block}{Faculty development seminars on makerspace technologies}
+\begin{frame}{Curricular Activities: Senior Capstone Design Project}
+ \begin{block}{Alternative to senior research}
+ \begin{itemize}
+  \item Pilots through Robo-Ops, medical physics development, systems integration in neutrino physics
+  \item Agile project management with support from some of the Agile Manifesto authors in conjunction with defense contractors, engineering consulting company, Anthem mob dev, NASA LaRC
+ \end{itemize}
+ \end{block}
+ \begin{block}{Spring 2018: NASA Lab 77 Agile Project (starts next week)}
   \begin{itemize}
-   \item Participation from physics, arts, music, psychology, economics,\ldots
-   \item Concrete outcomes: how will a makerspace technology be integrated in a specific course?
+   \item NASA LaRC Lab 77: CubeSat incubator, technology development hub
+   \item 5-person group of students (including business, compsci, physics), pick problem, develop solution, build MVP
+   \item ``Rent a scrum-master'' through Berkana Enterprise Consulting, Anthem
   \end{itemize}
  \end{block}
- \begin{block}{Faculty development seminars on entrepreneurship}
+\end{frame}
+
+% \begin{frame}{Curricular Activities: Week-Long May Seminars}
+%  \begin{block}{Faculty development seminars on makerspace technologies}
+%   \begin{itemize}
+%    \item Participation from physics, arts, music, psychology, economics,\ldots
+%    \item Concrete outcomes: how will a makerspace technology be integrated in a specific course?
+%   \end{itemize}
+%  \end{block}
+%  \begin{block}{Faculty development seminars on entrepreneurship}
+%   \begin{itemize}
+%    \item Participation from physics, biology (synthetic genetics), computer science (apps), business (entrepreneurship center)
+%    \item Result: two-semester cross-disciplinary course on innovation \& entrepreneurship to start in Fall 2016/Spring 2017
+%     \begin{itemize}
+%      \item 4-week tutorials on design thinking and the business model canvas
+%      \item Fall: ``shark tank'' event to form 3-4 person teams around selected individual ideas
+%      \item Winter: ``SBIR proposal'' mock submission and selection of projects for 6-8 person teams
+%      \item Spring: development of minimum viable product with 12 person teams
+%     \end{itemize}
+%   \end{itemize}
+%  \end{block}
+% \end{frame}
+
+% \begin{frame}{Curricular Activities: Rocket Science}
+%  \begin{block}{PHYS 100: Rocket Science}
+%   \begin{itemize}
+%    \item Course for non-scientists with an interest in rocket science
+%    \item Students are assigned to ``design a rocket'' using OpenRocket
+%    \item Supported by the W\&M Robotics Club they build the rocket and launch
+%   \end{itemize}
+%  \end{block}
+%  \begin{block}{PHYS 253: Instrumentation and Interfacing}
+%   \begin{itemize}
+%    \item Project-based second semester electronics course with focus on making things
+%    \item Often Arduino-based projects, but also using mBed or even FPGA boards
+%   \end{itemize}
+%  \end{block}
+% \end{frame}
+
+\begin{frame}{Project Showcase: 3D-Printable Scintillator Photopolymers}
+ \begin{block}{Development of transparent scintillating 3D-printer photopolymer}
   \begin{itemize}
-   \item Participation from physics, biology (synthetic genetics), computer science (apps), business (entrepreneurship center)
-   \item Result: two-semester cross-disciplinary course on innovation \& entrepreneurship to start in Fall 2016/Spring 2017
+   \item UV stereolithography using custom-formulated photo-resin (scintillator compound embedded in cross-linked polymer matrix)
+   \item Precision (using small scale 3D printer) of sub-mm scale
+   \item Light yield of about 1/3 compared to standard BC-408
+   \item Completed studies of long-term mechanical and optical stability, strength, efficiency
+  \end{itemize}
+ \end{block}
+ \begin{block}{Fail early, fail often, or languish}
+  \begin{itemize}
+   \item Project that did not rise to high enough TRL quickly enough before it started negatively impacting PI's career prospects
+   \item Interdisciplinary projects (chemistry, nuclear physics) are encouraged everywhere but have an even harder time getting funded or recognized; they are also the natural nexus for new developments
+  \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}{Project Showcase: 3D-Printable Scintillator Photopolymers}
+ \begin{center}
+  \pgfimage[height=0.8\textheight]<+>{photos/s60}
+ \end{center}
+\end{frame}
+
+\begin{frame}{Project Showcase: Bio-Degradable Plastics}
+ \begin{block}{Prototyping of bio-degradable components in marine environment}
+  \begin{itemize}
+   \item Collaboration with Virginia Institute of Marine Sciences (VIMS)
+   \item Lost crab traps (steel wire) remain active for long time (loss 10\%)
     \begin{itemize}
-     \item 4-week tutorials on design thinking and the business model canvas
-     \item Fall: ``shark tank'' event to form 3-4 person teams around selected individual ideas
-     \item Winter: ``SBIR proposal'' mock submission and selection of projects for 6-8 person teams
-     \item Spring: development of minimum viable product with 12 person teams
+     \item Cycle of death: crabs are carrion-feeders
     \end{itemize}
+   \item ``Escape hatches'' from bio-degradable plastic that disintegrates in months render the crab traps inactive
+  \end{itemize}
+ \begin{center}
+  \pgfimage[height=0.35\textheight]<1>{photos/encrusted_panel_lobster}
+  \pgfimage[height=0.35\textheight]<2>{photos/cull_panel}
+ \end{center}
+ \end{block}
+\end{frame}
+
+\begin{frame}{Project Showcase: Bio-Degradable Plastics}
+ \begin{block}{Development of PHA 3D printer filament (similar to PLA)}
+  \begin{itemize}
+   \item PHA = poly-hydroxy-alkanoate (similar to PLA biopolymer commonly used for 3D printing)
+   \item Three undergraduates, one graduate student in physics and applied science
+   \item Makerspace equipment: two polymer filament extruders and hardware for coiling jigs
+   \item PHA absorbs excess nutrients in water: filtration mats in ponds, lakes
+   \item Commercialization through VIMS: Green Ammo (PHA wadding), working on erosion-prevention run-off construction mesh
+  \end{itemize}
+ \end{block}
+ \begin{block}{Other printer filament development by students and researchers}
+  \begin{itemize}
+   \item Graphene-infused nylon filament for oil pipes
+   \item Tungsten-infused ABS filament for radiation shielding
   \end{itemize}
  \end{block}
 \end{frame}
 
-\begin{frame}{Curricular Activities: Rocket Science}
- \begin{block}{PHYS 100: Rocket Science}
-  \begin{itemize}
-   \item Course for non-scientists with an interest in rocket science
-   \item Students are assigned to ``design a rocket'' using OpenRocket
-   \item Supported by the W\&M Robotics Club they build the rocket and launch
-  \end{itemize}
- \end{block}
- \begin{block}{PHYS 253: Instrumentation and Interfacing}
-  \begin{itemize}
-   \item Project-based second semester electronics course with focus on making things
-   \item Often Arduino-based projects, but also using mBed or even FPGA boards
-  \end{itemize}
- \end{block}
-\end{frame}
-
-\begin{frame}{Research: SharkDuino}
+\begin{frame}{Project Showcase: SharkDuino}
  \begin{block}{Accelerometer/gyro data-logging tag based on Arduino}
   \begin{itemize}
    \item Collaboration with Virginia Institute of Marine Sciences (VIMS)
@@ -508,7 +614,7 @@
  \end{block}
 \end{frame}
 
-\begin{frame}{Research: SharkDuino}
+\begin{frame}{Project Showcase: SharkDuino}
  \begin{block}{Development by undergraduate students in Small Hall Makerspace}
   \begin{itemize}
    \item VIMS researchers, W\&M Committee on Sustainability supports students, Small Hall Makerspace invests in equipment
@@ -519,43 +625,9 @@
  \end{block}
  \begin{block}{Sharks were instrumented with accelerometer/gyro board}
  \begin{center}
-  \includegraphics[height=0.35\textheight]<1>{sharks}
-  \includegraphics[height=0.35\textheight]<2>{board} \quad \includegraphics[height=0.35\textheight]<2>{20160630_173012}
+  \pgfimage[height=0.35\textheight]<1>{photos/sharks}
+  \pgfimage[height=0.35\textheight]<2>{photos/board} \quad \pgfimage[height=0.35\textheight]<2>{photos/20160630_173012}
  \end{center}
- \end{block}
-\end{frame}
-
-\begin{frame}{Research: Bio-Degradable Plastics}
- \begin{block}{Prototyping of bio-degradable components in marine environment}
-  \begin{itemize}
-   \item Collaboration with Virginia Institute of Marine Sciences (VIMS)
-   \item Lost crab traps (steel wire) remain active for long time (loss 10\%)
-    \begin{itemize}
-     \item Cycle of death: crabs are carrion-feeders
-    \end{itemize}
-   \item ``Escape hatches'' from bio-degradable plastic that disintegrates in months render the crab traps inactive
-  \end{itemize}
- \begin{center}
-  \includegraphics[height=0.35\textheight]<1>{encrusted_panel_lobster}
-  \includegraphics[height=0.35\textheight]<2>{cull_panel}
- \end{center}
- \end{block}
-\end{frame}
- 
-\begin{frame}{Research: Bio-Degradable Plastics}
- \begin{block}{Development of PHA 3D printer filament (similar to PLA)}
-  \begin{itemize}
-   \item PHA = poly-hydroxy-alkanoate (similar to PLA biopolymer commonly used for 3D printing)
-   \item Three undergraduates supervised by one graduate student in physics and applied science
-   \item Makerspace equipment: two polymer filament extruders and hardware for coiling jigs
-   \item PHA absorbs excess nutrients in water: also useful for filtration mats in ponds and lakes
-  \end{itemize}
- \end{block}
- \begin{block}{Other printer filament development by students and researchers}
-  \begin{itemize}
-   \item Graphene-infused nylon filament for oil pipes
-   \item Tungsten-infused ABS filament for radiation shielding
-  \end{itemize}
  \end{block}
 \end{frame}
 
@@ -574,100 +646,159 @@
  \end{block}
  \footnotetext{APS Education \& Diversity, 2015}
 \end{frame}
- 
+
 \begin{frame}{Equity and Inclusion in Entrepreneurship}
  \begin{block}{Combination of two problematic fields requires some thought}
   \begin{itemize}
    \item Careful attention to how student project groups are composed
    \item Gentle nudges to consider actively attracting students from many backgrounds
    \item Zero-tolerance policy for any language or behavior that affects welcoming atmosphere
-   \item Active attempts to use outreach activities as a way to engage students who may not feel comfortable setting foot in the makerspace on their own
+   \item Active attempts to use outreach activities as a way to engage students who may not feel comfortable in typical makerspace
    \item Hiring of undergraduate assistant coordinators with connections to other departments (current undergraduate coordinator organized Dear Rosalind makerspace club that explicitly addresses equity)
   \end{itemize}
  \end{block}
 \end{frame}
 
-\begin{frame}{Equity and Inclusion in Entrepreneurship}
- \begin{block}{Infused in campus-wide maker movement efforts}
-  \begin{itemize}
-   \item Central recommendation in innovation and entrepreneurship white paper to university president in Spring 2016
-   \item Digital Humanities makerspace
-    \begin{itemize}
-     \item Headed by Elizabeth Losh, member of FemTechNet initiative
-     \item Includes arts, art history, gender, sexuality, \& women's studies
-     \item Examples: 3D-printed Cockroach Disco and Cockroach Hospice as feminist critique of spaces and affect
-    \end{itemize}
-   \item Biology makerspace
-    \begin{itemize}
-     \item Active engagement of women faculty members (much more so than Small Hall Makerspace which has historical and physical basis in physics)
-    \end{itemize}
-   \item Recognizing connections between arts, design, and STEM
-    \begin{itemize}
-     \item Examples: WaveBoard entry to DataCraft 2016 (Small Hall Makerspace's STEM visualization challenge)
-    \end{itemize}
-  \end{itemize}
- \end{block}
-\end{frame}
+% \begin{frame}{Equity and Inclusion in Entrepreneurship}
+%  \begin{block}{Infused in campus-wide maker movement efforts}
+%   \begin{itemize}
+%    \item Central recommendation in innovation and entrepreneurship white paper to university president in Spring 2016
+%    \item Digital Humanities makerspace
+%     \begin{itemize}
+%      \item Headed by Elizabeth Losh, member of FemTechNet initiative
+%      \item Includes arts, art history, gender, sexuality, \& women's studies
+%      \item Examples: 3D-printed Cockroach Disco and Cockroach Hospice as feminist critique of spaces and affect
+%     \end{itemize}
+%    \item Biology makerspace
+%     \begin{itemize}
+%      \item Active engagement of women faculty members (much more so than Small Hall Makerspace which has historical and physical basis in physics)
+%     \end{itemize}
+%    \item Recognizing connections between arts, design, and STEM
+%     \begin{itemize}
+%      \item Examples: WaveBoard entry to DataCraft 2016 (Small Hall Makerspace's STEM visualization challenge)
+%     \end{itemize}
+%   \end{itemize}
+%  \end{block}
+% \end{frame}
 
-\begin{frame}{Equity and Inclusion in Entrepreneurship}
- \begin{block}{Cockroach Disco (Gender, Sexuality, Women Studies)}
- \begin{center}
-  \includegraphics[height=0.75\textheight]{IMG_5941}
- \end{center}
- \end{block}
-\end{frame}
+% \begin{frame}{Equity and Inclusion in Entrepreneurship}
+%  \begin{block}{Cockroach Disco (Gender, Sexuality, Women Studies)}
+%  \begin{center}
+%   \pgfimage[height=0.75\textheight]{photos/IMG_5941}
+%  \end{center}
+%  \end{block}
+% \end{frame}
 
-\begin{frame}{Equity and Inclusion in Entrepreneurship}
- \begin{block}{WaveBoard (visualize solutions to the 2D wave equation)}
- \begin{center}
-  \includegraphics[height=0.75\textheight]{14446150_710823349075039_7511569199451227995_n}
- \end{center}
- \end{block}
-\end{frame}
+% \begin{frame}{Equity and Inclusion in Entrepreneurship}
+%  \begin{block}{WaveBoard (visualize solutions to the 2D wave equation)}
+%  \begin{center}
+%   \pgfimage[height=0.75\textheight]{photos/14446150_710823349075039_7511569199451227995_n}
+%  \end{center}
+%  \end{block}
+% \end{frame}
 
-\begin{frame}{Do You Want to Start your own Makerspace?}
- \begin{block}{Budget for equipment}
-  \begin{itemize}
-   \item Around \$20k in major equipment such as 3D printers (\$2.5k/ea), laser cutter (\$5k), thermoformer (\$5k), CNC cutter (\$7k)
-   \item Electronics base equipment: oscilloscopes, function generators, soldering stations (\$5k)
-  \end{itemize}
- \end{block}
- \begin{block}{Space requirements}
-  \begin{itemize}
-   \item Constraints due to local regulations
-   \item Venting for 3D printers and laser cutter
-  \end{itemize}
- \end{block}
- \begin{block}{Annual budget for personnel and projects}
-  \begin{itemize}
-   \item \$2k per semester for student project support
-   \item Undergraduate and graduate TA support in kind
-  \end{itemize}
- \end{block}
-\end{frame}
+% \begin{frame}{Do You Want to Start your own Makerspace?}
+%  \begin{block}{Budget for equipment}
+%   \begin{itemize}
+%    \item Around \$20k in major equipment such as 3D printers (\$2.5k/ea), laser cutter (\$5k), thermoformer (\$5k), CNC cutter (\$7k)
+%    \item Electronics base equipment: oscilloscopes, function generators, soldering stations (\$5k)
+%   \end{itemize}
+%  \end{block}
+%  \begin{block}{Space requirements}
+%   \begin{itemize}
+%    \item Constraints due to local regulations
+%    \item Venting for 3D printers and laser cutter
+%   \end{itemize}
+%  \end{block}
+%  \begin{block}{Annual budget for personnel and projects}
+%   \begin{itemize}
+%    \item \$2k per semester for student project support
+%    \item Undergraduate and graduate TA support in kind
+%   \end{itemize}
+%  \end{block}
+% \end{frame}
 
-\begin{frame}{Do You Want to Start your own Makerspace?}
- \begin{block}{Money is the easy part if you sell it well}
+% \begin{frame}{Do You Want to Start your own Makerspace?}
+%  \begin{block}{Money is the easy part if you sell it well}
+%   \begin{itemize}
+%    \item Benefits beyond the department that houses the makerspace
+%    \item Benefits to researchers as well as students
+%   \end{itemize}
+%  \end{block}
+%  \begin{block}{Here are the real barriers\ldots}
+%   \begin{itemize}
+%    \item Finding a \alert{space} that can accommodate makerspace technologies
+%    \begin{itemize}
+%     \item Access control: building and lab safety while maintaining openness
+%     \item Examples: student ID card swipe, key check-out levels, scheduled open build hours,\ldots
+%    \end{itemize}
+%    \item Finding the \alert{people} to staff the space
+%    \begin{itemize}
+%     \item Safety and standard operating procedure training in person (or develop online modules)
+%     \item Staff open build hours, organize tutorials, evaluate quotes, judge project proposals
+%    \end{itemize}
+%   \end{itemize}
+%  \end{block}
+% \end{frame}
+
+\begin{frame}[allowframebreaks]{Institutional Barriers Against Physics I\&E}
+ \begin{block}{Missing intra- and external institutional links}
   \begin{itemize}
-   \item Benefits beyond the department that houses the makerspace
-   \item Benefits to researchers as well as students
-  \end{itemize}
- \end{block}
- \begin{block}{Here are the real barriers\ldots}
-  \begin{itemize}
-   \item Finding a \alert{space} that can accommodate makerspace technologies
+   \item Silo-ization of academia: strict separation between A\&S depts, VIMS, School of L/B/Ed (currently setting up industry partnership forum across A\&S depts, School of B; already exists at VIMS)
+   \item Course credit revenue-sharing firewall between School of Business (entrepreneurship) and School of Arts \& Sciences (physics)
    \begin{itemize}
-    \item Access control: building and lab safety while maintaining openness
-    \item Examples: student ID card swipe, key check-out levels, scheduled open build hours,\ldots
+    \item Entrepreneurship Center instructor gets flak from their dean when giving overrides to physics students
    \end{itemize}
-   \item Finding the \alert{people} to staff the space
-   \begin{itemize}
-    \item Safety and standard operating procedure training in person (or develop online modules)
-    \item Staff open build hours, organize tutorials, evaluate quotes, judge project proposals
-   \end{itemize}
+   \item Tech transfer office not a known resource for most faculty (no active reaching out from TTO)
+   \item Most faculty allergic to learning new things (intellectual property, small business management, project management), let alone including it in teaching (APS PIPELINE network attempts to address this)
+  \end{itemize}
+ \end{block}
+ \begin{block}{Absent alignment mechanism}
+  \begin{itemize}
+   \item Lack of history in engineering, entrepreneurship and institutional focus on individual liberal arts: often merely a failure of imagination (our biggest I\&E dept is arguably government through US-AID)
+   \item Lack of strong connections with industry (considering APS Local Link for Hampton Roads centered around JLab)
+   \item No incentives for physics faculty who are evaluated on research, not tech development (in contrast with engineering)
+   \item Early ``valley of death'' between research and seed investor funding, compounded by requirements on cost-sharing for VA state grants (CRCF, CIT, VRIF) which require previous federal grants; most of the previous projects are funded through our university's own `angel investor' (IDC return on my own grants); this is a question of getting to high enough TRL for further funding, applied research resulting in MVP
   \end{itemize}
  \end{block}
 \end{frame}
+
+\begin{frame}[allowframebreaks]{What I Am Interested In Working To Achieve?}
+ \begin{block}{Current efforts}
+  \begin{itemize}
+   \item Makerspaces in physics education
+   \item Engineering Physics and Applied Design tracks in physics
+   \item Connections between physics and business community
+   \item Forming physics I\&E community through PIPELINE, AAPT, APS
+  \end{itemize}
+ \end{block}
+ \begin{block}{Senior capstone commercialization projects for Jefferson Lab}
+  \begin{itemize}
+   \item Combination of Physics EPAD and Entrepreneurship Center field consultancy
+   \item Yearly yearlong opportunity for evaluation of large number of idea(let)s
+  \end{itemize}
+ \end{block}
+ \begin{block}{Training for Jefferson Lab community}
+  \begin{itemize}
+   \item Jefferson Lab runs projects like NASA in the 80s, not like a startup
+   \item Large collaborations are often lead by terrible project managers
+   \begin{itemize}
+    \item Agile project management training for any group leader
+   \end{itemize}
+   \item New developments at Jefferson Lab (affiliated institutions) not commercialized
+   \begin{itemize}
+    \item JSA IF program for up to \$20k level to bring to TRL4?
+   \end{itemize}
+  \end{itemize}
+ \end{block}
+ \begin{block}{APS Local Link centered around Jefferson Lab}
+  \begin{itemize}
+   \item Connecting industry leaders with lab-affiliated researcher, push-pull of ideas and applications
+   \item Pipeline for talent to industry, commercialization efforts for JLab
+  \end{itemize}
+ \end{block}
+\end{frame}
+
 
 \againframe{summary}
 
